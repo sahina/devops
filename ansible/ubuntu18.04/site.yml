@@ -1,0 +1,24 @@
+- hosts: all
+  gather_facts: false
+  remote_user: root
+  roles:
+    - base
+    - users
+
+- hosts: webservers
+  gather_facts: false
+  remote_user: root
+  roles:
+    - docker
+
+- hosts: databases
+  gather_facts: false
+  remote_user: root
+  roles:
+    - postgres
+
+- hosts: lbservers
+  gather_facts: false
+  remote_user: root
+  roles:
+    - haproxy

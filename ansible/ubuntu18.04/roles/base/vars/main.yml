@@ -1,0 +1,1 @@
+helper_packages: ["curl", "vim", "git", "ufw", "direnv"]

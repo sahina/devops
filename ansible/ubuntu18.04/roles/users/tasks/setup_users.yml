@@ -1,0 +1,15 @@
+- name: Create "devops" user
+  user:
+    name: devops
+    shell: /bin/bash
+    uid: 1000
+    group: users
+    groups: ["sudo"]
+    append: true
+    password: $6$ccVp12eX5RlOAoJI$6w0vvK32I08k.HmDpMkQd20ZfY7IxHG9tajTQ8NzkTQu6NWCuR5pN5x5oCXioxLub4F88ZKYneZuX.LT/KKf00
+
+- name: Add user "devops" to "sudo-nopasswd" group
+  user:
+    name: devops
+    groups: ["sudo-nopasswd"]
+    append: true

@@ -1,0 +1,6 @@
+postgresql_databases:
+  - name: testdb
+
+postgresql_users:
+  - name: testdb_user
+    password: testdb_user

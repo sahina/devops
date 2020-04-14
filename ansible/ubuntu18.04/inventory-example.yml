@@ -1,0 +1,25 @@
+all:
+  hosts:
+    node1:
+      ansible_host: localhost
+      ansible_ssh_user: root
+    node2:
+      ansible_host: localhost
+      ansible_ssh_user: root
+    pg1:
+      ansible_host: localhost
+      ansible_ssh_user: root
+    lb1:
+      ansible_host: localhost
+      ansible_ssh_user: root
+  children:
+    webservers:
+      hosts:
+        node1:
+        node2:
+    databases:
+      hosts:
+        pg1:
+    lbservers:
+      hosts:
+        lb1:

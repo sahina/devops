@@ -1,0 +1,15 @@
+- name: Create "devops" user's .ssh directory
+  file:
+    path: /home/devops/.ssh
+    state: directory
+    owner: devops
+    group: users
+    mode: "0700"
+
+- name: Copy "devops" user's authorized_keys
+  copy:
+    src: devops.auth_keys
+    dest: /home/devops/.ssh/authorized_keys
+    owner: devops
+    group: users
+    mode: "0600"

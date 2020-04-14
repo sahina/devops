@@ -1,0 +1,28 @@
+- name: Download and install haproxy
+  apt:
+    name: haproxy
+    state: present
+
+- name: Configure the haproxy cnf file with hosts
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify: restart_haproxy
+
+- name: Start the haproxy service
+  service:
+    name: haproxy
+    state: started
+    enabled: yes
+
+- name: UFW - Allow http
+  ufw:
+    rule: allow
+    proto: tcp
+    port: "80"
+
+- name: UFW - Allow https
+  ufw:
+    rule: allow
+    proto: tcp
+    port: "443"

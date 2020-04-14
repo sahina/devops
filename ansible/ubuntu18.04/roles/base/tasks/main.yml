@@ -1,0 +1,44 @@
+- name: Install aptitude using apt
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: yes
+    force_apt_get: yes
+
+- name: Install required system packages
+  apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  loop:
+    [
+      "build-essential",
+      "apt-transport-https",
+      "ca-certificates",
+      "curl",
+      "software-properties-common",
+      "python3-pip",
+      "virtualenv",
+      "python3-setuptools",
+    ]
+
+- name: Install helper packages
+  apt:
+    name: "{{helper_packages}}"
+    state: latest
+
+- name: Install spacevim
+  shell: curl -sLf https://spacevim.org/install.sh | bash
+  args:
+    warn: no
+
+
+- name: Set direnv bashrc
+  lineinfile:
+    dest: ~/.bashrc
+    line: 'eval "$(direnv hook bash)"'
+
+- name: UFW - Allow SSH connections
+  ufw:
+    rule: allow
+    name: OpenSSH
