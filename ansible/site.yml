@@ -10,6 +10,7 @@
   remote_user: root
   roles:
     - docker
+    - asdf
 
 - hosts: databases
   gather_facts: false

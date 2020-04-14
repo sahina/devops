@@ -4,3 +4,5 @@ postgresql_databases:
 postgresql_users:
   - name: testdb_user
     password: testdb_user
+
+asdf_user: "devops"

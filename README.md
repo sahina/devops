@@ -7,11 +7,11 @@ Misc devops scripts.
 Roles and playbooks for ansible playbooks.
 
 
-### Required steps
+## Node Setup
 
 Rename file `inventory-example.yml` to `inventory.yml`
 
-Prepare nodes in your inventory to be manager by ansible.
+Prepare nodes in your inventory to be managed by ansible.
 
 **On all nodes:**
 
@@ -33,9 +33,7 @@ ssh-copy-id -i ~/.ssh/id_ansible_rsa ansible
 ssh-copy-id -i ~/.ssh/id_ansible_rsa ansible
 ```
 
-## Ansible Playbooks
-
-**postgres.yml**
+## Postgres Playbook
 
 Download the role to local roles folder. We'll override some values from the downloaded role.
 
@@ -77,3 +75,10 @@ netstat -nlt
 ```
 
 Ref: `https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html`
+
+
+## Webserver playbook
+
+Download asdf role to local roles folder.
+
+`ansible-galaxy install -p roles cimon-io.asdf`

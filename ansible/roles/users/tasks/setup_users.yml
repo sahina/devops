@@ -8,8 +8,13 @@
     append: true
     password: $6$ccVp12eX5RlOAoJI$6w0vvK32I08k.HmDpMkQd20ZfY7IxHG9tajTQ8NzkTQu6NWCuR5pN5x5oCXioxLub4F88ZKYneZuX.LT/KKf00
 
-- name: Add user "devops" to "sudo-nopasswd" group
+- name: Ensure group "devops" exists
+  group:
+    name: devops
+    state: present
+
+- name: Add user "devops" to "sudo-nopasswd" and "devops" group
   user:
     name: devops
-    groups: ["sudo-nopasswd"]
+    groups: ["sudo-nopasswd", "devops"]
     append: true

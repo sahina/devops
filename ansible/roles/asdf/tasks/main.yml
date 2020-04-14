@@ -1,0 +1,14 @@
+- name: Install elixir
+  include_role:
+    name: cimon-io.asdf
+  vars:
+    asdf_plugins:
+      - name: "erlang"
+        versions: ["22.3"]
+        global: "22.3"
+      - name: "elixir"
+        versions: ["1.10.2"]
+        global: "1.10.2"
+      - name: nodejs
+        versions: ["12.16.1"]
+        global: "12.16.1"
